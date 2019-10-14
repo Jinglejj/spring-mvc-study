@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <!-- 引入数据库连接信息 -->
+    <properties resource="db.properties"/>
+
+    <context id="test" targetRuntime="MyBatis3Simple">
+        <!-- 不生成自动添加的注释 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <!-- 数据库连接信息 -->
+        <jdbcConnection driverClass="${driverClass}"
+                        connectionURL="${url}"
+                        userId="${username}"
+                        password="${password}">
+        </jdbcConnection>
+        <!-- java代码生成的位置，属性 -->
+        <javaModelGenerator targetPackage="pojo" targetProject="./src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+            <property name="" value=""/>
+        </javaModelGenerator>
+        <!-- Mapper文件生成的位置， 属性 -->
+        <sqlMapGenerator targetPackage="mappers" targetProject="./src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!-- Java接口生成的位置， 属性 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="dao" targetProject="./src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <!-- 需要生成Java代码所对应的表，可有多个 -->
+        <!-- 若tableName="%" 表示对该数据库中所有的表生成PO -->
+
+<!--        <table tableName="buybook" >-->
+<!--            <domainObjectRenamingRule  searchString="^" replaceString=""/>-->
+<!--        </table>-->
+    </context>
+</generatorConfiguration>

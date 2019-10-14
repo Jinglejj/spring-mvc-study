@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+
+        xmlns="http://www.springframework.org/schema/beans"
+
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+    <bean id="car1" class="pojo.Car">
+        <property name="brand" value="汽车一"></property>
+        <property name="color" value="red"></property>
+        <property name="displacement" value="1.5T"></property>
+    </bean>
+
+    <bean id="car2" class="pojo.Car">
+        <property name="brand" value="汽车二"></property>
+        <property name="color" value="blue"></property>
+        <property name="displacement" value="2T"></property>
+    </bean>
+
+    <bean id="boss1" class="pojo.Boss">
+        <property name="name" value="老板一"></property>
+        <property name="company" value="公司一"></property>
+        <property name="interest" value="兴趣一"></property>
+        <property name="car">
+            <ref local="car1"/>
+        </property>
+    </bean>
+    <bean id="boss2" class="pojo.Boss">
+        <property name="name" value="老板二"></property>
+        <property name="company" value="公司二"></property>
+        <property name="interest" value="兴趣二"></property>
+        <property name="car">
+            <ref local="car2"/>
+        </property>
+    </bean>
+    <bean id="boss3" class="pojo.Boss">
+        <property name="name" value="老板三"></property>
+        <property name="company" value="公司三"></property>
+        <property name="interest" value="兴趣三"></property>
+        <property name="car">
+            <ref local="car1"/>
+        </property>
+    </bean>
+    <bean id="metting" class="pojo.Metting">
+        <property name="theme" value="会议一"></property>
+        <property name="boosList">
+            <list>
+                <ref bean="boss1"/>
+                <ref bean="boss2"/>
+                <ref bean="boss3"/>
+            </list>
+        </property>
+    </bean>
+</beans>
